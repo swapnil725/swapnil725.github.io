@@ -9,6 +9,7 @@ export class LoginComponent implements OnInit {
   password="";
   username="";
   showSpinner=false;
+  loginModel:any = {};
   constructor() { }
 
   ngOnInit() {

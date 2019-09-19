@@ -8,13 +8,15 @@ import {  MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTa
   MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule} from  '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import {FormsModule} from '@angular/forms';
   MatMenuModule,
   MatIconModule,
   MatProgressSpinnerModule,
-  FormsModule
+  FormsModule,
+  FlexLayoutModule
 
   ],
   providers: [],
