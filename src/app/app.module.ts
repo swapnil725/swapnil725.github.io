@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {FormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { RegisterComponent } from './register/register.component';
   MatIconModule,
   MatProgressSpinnerModule,
   FormsModule,
-  FlexLayoutModule
+  FlexLayoutModule,
+  HttpClientModule
 
   ],
   providers: [],
