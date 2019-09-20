@@ -1,47 +1,74 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Register User</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <form class="example-form">
-                <table class="example-full-width" cellspacing="0">
+<div class="login-wrapper" fxLayout="column" fxLayoutAlign="space-around center">
+    <div fxLayout="row">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Register User</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <form class="example-form" name="regForm" [formGroup]="formGroup"
+                    (ngSubmit)="register(formGroup.value)">
+                    <table class="example-full-width" cellspacing="0">
                         <tr>
-                                <td>
-                                    <mat-form-field class="example-full-width">
-                                        <input matInput placeholder="Full Name" [(ngModel)]="registerModel.fullName" name="username" required>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                    <tr>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Username" [(ngModel)]="registerModel.username" name="username" required>
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Password" [(ngModel)]="registerModel.password" type="password"
-                                    name="password" required>
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Confirm Password" [(ngModel)]="registerModel.confimPassword" type="confimPassword"
-                                    name="confimPassword" required>
-                            </mat-form-field>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-raised-button (click)="register()" color="primary">Register</button>
-        </mat-card-actions>
-    </mat-card>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Full Name" name="fullName" required
+                                        formControlName="fullName">
+                                    <mat-error *ngIf="formGroup.controls['fullName'].invalid">
+                                        {{getError('fullName')}}
+                                    </mat-error>
+                                </mat-form-field>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Username" name="username" required
+                                        formControlName="username">
+                                    <mat-error *ngIf="formGroup.controls['username'].invalid">
+                                        {{getError('user')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Password" type="password" formControlName="password"
+                                        name="password" required>
+                                    <mat-error *ngIf="!formGroup.controls['password'].valid">
+                                        {{getError('pass')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Confirm Password" type="password"
+                                        formControlName="confimPassword" name="confimPassword" required>
+                                    <mat-error *ngIf="!formGroup.controls['confimPassword'].valid">
+                                        {{getError('confimPassword')}}
+                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    </table>
+                    <mat-card-actions>
+                        <button mat-raised-button [disabled]="!formGroup.valid" color="primary">Register</button>
+                    </mat-card-actions>
+                </form>
+                <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+   
+
+    <!-- <div></div>
+    <div>
+        
+    </div>
+    <div></div> -->
+
 </div>

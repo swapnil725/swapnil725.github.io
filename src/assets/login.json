@@ -1,7 +1,9 @@
 [
     {
         "id":1,
+        "fullname":"Swapnil Sangale",
         "username":"swapnil",
-        "password":"swa1234"
+        "password":"swa1234",
+        "role": "admin"
     }
 ]
